@@ -1,2 +1,83 @@
-text.doc
-new.py
+# System files #
+###############
+.DS_Store
+Thumbs.db
+
+# Compiled code #
+#################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to exclude the dependency directories as they can be restored
+# for Python
+venv/
+ENV/
+*.pyc
+
+# for Node
+node_modules/
+
+# for Ruby
+/vendor/bundle/
+
+# Log files #
+#############
+*.log
+
+# Build product #
+#################
+/dist
+
+# Temporary files #
+###################
+*.tmp
+*.temp
+*.swp
+*~
+
+# Editor directories and files #
+################################
+# for IntelliJ
+.idea/
+*.iml
+
+# for VSCode
+.vscode/
+
+# for Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Environment files #
+#####################
+.env
+.env.local
+
+# Ignore config files that may contain sensitive information #
+#############################################################
+config/database.yml
+config/secrets.yml
+
+# Ignore generated files from database migrations #
+###################################################
+db/schema.rb
+db/structure.sql
+
+# OS generated files #
+######################
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Thumbnails #
+##############
+*_thumb
+*~.nib
+
+db.sqlite3
