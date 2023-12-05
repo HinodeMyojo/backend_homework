@@ -5,14 +5,27 @@
 {% endblock %}
 
 {% block content %}
-  {% for proposal in contest_proposals %}
-    <div>
-      {{ proposal.id }}, {{ proposal.title }}, {{ proposal.price }},
-      {{ proposal.description }}{% if proposal.comment %}, {{ proposal.comment }}{% endif %}
-      <br>
-      <a href="{% url "contest:edit" proposal.id %}">Редактировать заявку</a> 
-      | 
-      <a href="{% url "contest:delete" proposal.id %}">Удалить заявку</a>
-    </div>
+  {% for proposal in page_obj %}
+    <div class="row">
+      <div class="col-2">
+        {% if proposal.image %}
+          <img src="{{ proposal.image.url }}" height="100">
+        {% endif %}
+      </div>
+      <div class="col-10">
+        <div>
+          {{ proposal.id }}, {{ proposal.title }}, {{ proposal.price }},
+          {{ proposal.description }}{% if proposal.comment %}, {{ proposal.comment }}{% endif %}
+        </div>
+        <div>
+          <a href="{% url "contest:edit" proposal.id %}">Редактировать заявку</a> 
+          | 
+          <a href="{% url "contest:delete" proposal.id %}">Удалить заявку</a>
+        </div>
+      </div>
+  {% if not forloop.last %}
+    <hr class="mt-3">
+  {% endif %}
+  </div>
   {% endfor %}
 {% endblock %}

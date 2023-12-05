@@ -9,7 +9,20 @@ class Contest(models.Model):
     description = models.TextField(verbose_name='Описание')
     price = models.IntegerField(
         verbose_name='Цена',
-        validators=[MinValueValidator(10), MaxValueValidator(100), (validate_price)],
+        validators=[MinValueValidator(10), MaxValueValidator(100), validate_price],
         help_text='Рекомендованная розничная цена',
     )
-    comment = models.TextField(verbose_name='Комментарий', blank=True)
+    comment = models.TextField(
+        verbose_name='Комментарий',
+        blank=True)
+    image = models.ImageField(
+        verbose_name='Изображение',
+        blank=True,
+        upload_to='contest_images')
+
+    class Meta:
+        constraints = (
+            models.UniqueConstraint(fields=('title', 'description'), name='unique_title_contest'),
+        )
+
+    

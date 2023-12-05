@@ -22,7 +22,7 @@
         Конкурс мороженого
       </div>
       <div class="card-body">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {% if not "/delete/" in request.path %}
             {% bootstrap_form form %}
