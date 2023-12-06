@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    ID записи: {{ object.id }}
+    <hr>
+    {% if object.image %}
+        <div>
+            <img src="{{ object.image.url }}" height="200">
+        </div>
+    {% endif %}
+    <h2>Это запись о {{ object.title }}</h2>
+{% endblock content %}

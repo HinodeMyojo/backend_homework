@@ -5,8 +5,9 @@ from . import views
 app_name = 'contest'
 
 urlpatterns = [
-    path('', views.proposal, name='create'),
-    path('list/', views.proposal_list, name='list'),
-    path('<int:pk>/edit/', views.proposal, name='edit'),
-    path('<int:pk>/delete/', views.delete_proposal, name='delete')
+    path('', views.ProporsalView.as_view(), name='create'),
+    path('list/', views.ProporsalListView.as_view(), name='list'),
+    path('<int:pk>', views.ProporsalDetailView.as_view(), name='detail'),
+    path('<int:pk>/edit/', views.ProporsalEditView.as_view(), name='edit'),
+    path('<int:pk>/delete/', views.ProporsalDeleteView.as_view(), name='delete')
 ]
