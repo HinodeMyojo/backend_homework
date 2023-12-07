@@ -908,7 +908,7 @@
   }
 },
 {
-  "model": "auth.user",
+  "model": "auth_user",
   "pk": 2,
   "fields": {
     "password": "pbkdf2_sha256$260000$7wwqOI9F1CE7jzGTvcskO0$d78XoBkBk4AQqdzg1n9WriFAtEQf1EA0B3dwh0EZ0VQ=",
