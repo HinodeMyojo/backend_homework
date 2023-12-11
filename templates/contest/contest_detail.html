@@ -9,4 +9,25 @@
         </div>
     {% endif %}
     <h2>Это запись о {{ object.title }}</h2>
+    <div>
+        <h3>Поздравления:</h3>
+        <!-- Если пользователь залогинен, отображаем форму -->
+        {% if user.is_authenticated %}
+        <!-- Указываем, на какой адрес нужно отправить POST-запрос -->
+        <form action="{% url 'contest:add_comment' object.pk %}" method="post" class="col-3">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% bootstrap_button button_type="submit" content="Отправить поздравление" %}
+        </form>
+        {% endif %}
+        <!-- В цикле перебираем и выводим поздравления -->
+        {% for congratulation in congratulations %}
+        <hr>
+        <p>
+            {{ congratulation.author.username }}
+            поздравил {{ congratulation.created_at|date:"d M Y H:i" }}
+        </p>
+        <p><b>{{ congratulation.text }}</b></p>
+        {% endfor %}
+    </div>
 {% endblock content %}

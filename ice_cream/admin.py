@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Topping, Wrapper, IceCream
+from .models import Category, Topping, Wrapper, IceCream, Tag
 
 
 class IceCreamInline(admin.StackedInline):
@@ -41,5 +41,6 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Topping)
 admin.site.register(Wrapper)
 admin.site.register(IceCream, IceCreamAdmin)
+admin.site.register(Tag)
 
 admin.site.empty_value_display = 'Не задано'

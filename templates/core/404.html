@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+Страница 404
+{% endblock title %}
+
+{% block content %}
+    <h1>Страница 404</h1>
+    <p>Страницы с адресом {{ request.path }} не существует</p>
+    <a href="{% url "contest:list" %}">Бегом на главную!速い!</a>
+{% endblock content %}

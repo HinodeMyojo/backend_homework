@@ -17,11 +17,11 @@
           {{ proposal.id }}, {{ proposal.title }}, {{ proposal.price }},
           {{ proposal.description }}{% if proposal.comment %}, {{ proposal.comment }}{% endif %}
         </div>
-        <div>
-          <a href="{% url "contest:edit" proposal.id %}">Редактировать заявку</a> 
-          | 
-          <a href="{% url "contest:delete" proposal.id %}">Удалить заявку</a>
-        </div>
+        {% if birthday.author == user %}
+          <div>
+            <a href="{% url 'birthday:edit' birthday.id %}">Изменить запись</a> | <a href="{% url 'birthday:delete' birthday.id %}">Удалить запись</a>
+          </div>
+        {% endif %} 
       </div>
   {% if not forloop.last %}
     <hr class="mt-3">

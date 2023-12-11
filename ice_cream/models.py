@@ -71,6 +71,12 @@ class IceCream(PublishedModel):
     toppings = models.ManyToManyField(Topping, verbose_name='Топпинги')
     is_on_main = models.BooleanField(default=False, verbose_name='На главную')
     price = models.DecimalField(max_digits=5, decimal_places=2)
+    tags = models.ManyToManyField(
+        'Tag',
+        verbose_name='Теги',
+        blank=True,
+        help_text='Удерживайте Ctrl для выбора нескольких вариантов'
+    )
 
     class Meta:
         verbose_name = 'мороженое'
@@ -79,3 +85,13 @@ class IceCream(PublishedModel):
 
     def __str__(self):
         return self.title
+
+class Tag(models.Model):
+    tag = models.CharField('Тег', max_length=20)
+
+    class Meta:
+        verbose_name = 'Тег'
+        verbose_name_plural = 'Теги'
+
+    def __str__(self):
+        return self.tag
